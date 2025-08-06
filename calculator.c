@@ -7,6 +7,9 @@
 char buffered_reader();
 void buffered_writer(char c);
 
+double pop();
+void push(double c);
+
 int main(void) {
   char in;
   printf("Reverse polish calculator");
