@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #define BUFFER_SIZE 120
+#define STACK_SIZE 120
 
 char buffered_reader();
 void buffered_writer(char c);
@@ -15,6 +16,28 @@ int main(void) {
   printf("%c\n", buffered_reader());
 
   return 0;
+}
+
+/*
+ * Stack
+ */
+double stack[STACK_SIZE];
+int sp = 0; /* Next free space on stack */
+
+void push(double c) {
+  if (sp == STACK_SIZE) {
+    printf("Error!! The stack is full");
+    exit(1);
+  }
+
+  stack[sp++] = c;
+}
+
+double pop() {
+  if (sp == 0)
+    return 0.0;
+
+  return stack[--sp];
 }
 
 /*
